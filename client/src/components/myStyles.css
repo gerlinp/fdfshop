@@ -53,9 +53,9 @@ a.nav-link:hover {
   color:#E879BB !important;
 }
 
-.navbar-toggler-icon {
+/* .navbar-toggler-icon {
   background-image: url("../list.svg") !important;
-}
+} */
 
 .navbar-toggler {
   border: none;

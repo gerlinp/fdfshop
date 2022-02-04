@@ -1,9 +1,10 @@
 import { ArrowLeftOutlined, ArrowRightOutlined } from "@material-ui/icons"
-import styled from "styled-components"
+import styled from "styled-components";
 import './myStyles.css'
-import {sliderItems} from "../data"
 import React, { useState } from "react";
-import {mobile} from "../responsive"
+import {sliderItems} from "../data";
+// import {mobile} from "../responsive";
+
 
 const Container = styled.div`
     width: 100%;
@@ -11,7 +12,6 @@ const Container = styled.div`
     display: flex;
     position: relative;
     overflow: hidden;
-    ${mobile({ display: "none"})}
 `
 
 const Arrow = styled.div`
@@ -39,23 +39,21 @@ const Wrapper = styled.div`
     transition: all 1.5s ease;
     transform: translateX(${props=>props.slideIndex * -100}vw);
 `
+
 const Slide = styled.div`
     width: 100vw;
     height: 100vh;
     display: flex;
     align-items: center;
     background-color: #${(props) =>props.bg};
-
 `
-
-
 const ImgContainer = styled.div`
     height: 100%;
     flex:1;
 `
 
 const Image = styled.img`
-${'' /* height: 80%; */}
+    height: 100%;
 `
 
 const InfoContainer = styled.div`
@@ -65,12 +63,14 @@ const InfoContainer = styled.div`
 const Title = styled.h1`
     font-size 70px;
 `
+
 const Desc = styled.p`
     margin: 50px 0px;
     font-size: 20px;
     font-weigth: 500;
     letter-spacing: 3px;
 `
+
 const Button = styled.button`
     padding: 10px;
     font-size: 20px;
@@ -80,15 +80,17 @@ const Button = styled.button`
     border-radius: 50px;
 `
 
+
+
 const Slider = () => {
-        const [slideIndex,setSLideIndex ] = useState(0);
-        const handleClick = (direction) => {
-            if(direction==="left"){
-                setSLideIndex(slideIndex > 0 ? slideIndex-1 : 2)
-            } else {
-                setSLideIndex(slideIndex < 2 ? slideIndex +1 : 0)
-            }
-        };
+    const [slideIndex,setSLideIndex ] = useState(0);
+    const handleClick = (direction) => {
+        if(direction==="left"){
+            setSLideIndex(slideIndex > 0 ? slideIndex -1 : 2)
+        } else {
+            setSLideIndex(slideIndex < 2 ? slideIndex +1 : 0)
+        }
+    };
     return (
         <Container>
             <Arrow direction="left" onClick={()=>handleClick("left")}>
@@ -117,6 +119,6 @@ const Slider = () => {
             </Arrow>
         </Container>
     )
-}
+};
 
-export default Slider
+export default Slider;
