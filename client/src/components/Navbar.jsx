@@ -1,28 +1,32 @@
-import { Badge } from '@material-ui/core'
-import { Search, ShoppingCartOutlined } from '@material-ui/icons'
+import { Badge } from "@material-ui/core"
+import { Search, ShoppingCartOutlined } from "@material-ui/icons";
 import React from 'react'
 import styled from 'styled-components'
+import { mobile } from "../responsive";
 
-
-const Container = styled.div`
+const Container  =  styled.div`
     height: 60px;
+    background: black;
+    color: white;
+    ${mobile({ height: "50px" })}
 `
-
-const Wrapper =  styled.div`
+const Wrapper = styled.div `
     padding: 10px 20px;
     display: flex;
+    align-items: center;
     justify-content: space-between;
+    ${mobile({ padding: "10px 0px" })}
 `
 
-const Left =  styled.div`
-    flex:1;
-    display: flex;
-    align-items: center;
+const Left = styled.div`
+flex: 1;
+display: flex;
+align-items: center;
 `
 
 const Language = styled.span`
     font-size: 14px;
-    cursor: pointer;
+    ${mobile({ display: "none" })}
 `
 
 const SearchContainer = styled.div`
@@ -30,60 +34,62 @@ const SearchContainer = styled.div`
     display: flex;
     align-items: center;
     margin-left: 25px;
-    max-width: 50vw;
-    padding: 8px 20px 8px 20px !important;
+    padding: 5px;
 `
 
 const Input =  styled.input`
-     border: none;
-     background: transparent;
-     color: white;
-     width: 100%;
+    border: none;
+    background: transparent;
+    color: white;
+    ${mobile({ width: "50px" })}
 `
 
-const Center =  styled.div`
-    flex:1;
-    text-align: center;
+
+const Center = styled.div`
+flex: 1;
+text-align: center;
 `
+
 const Logo = styled.h1`
     font-weight: bold;
+    ${mobile({ fontSize: "5px" })}
 `
-const Right =  styled.div`
-    flex:1;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
+const Right = styled.div`
+flex: 1;
+display: flex;
+align-items: center;
+justify-content: flex-end;
+`
 
-`
 const MenuItem = styled.div`
-    font0-size: 14px;
+    font-size: 14px;
     cursor: pointer;
     margin-left: 25px;
+    ${mobile({ fontSize: "12px", marginLeft: "10px" })}
 `
 
 const Navbar = () => {
     return (
         <Container>
-            <Wrapper>
-                <Left>
-                    <Language>EN</Language>
-                    <SearchContainer>
-                        <Input/>
-                        <Search style={{color: 'gray', fontSize: 16}}/>
-                    </SearchContainer>
-                </Left>
-                <Center><Logo>FEAR DRIVES FAITH</Logo></Center>
-                <Right>
-                    <MenuItem>REGISTER</MenuItem>
-                    <MenuItem>SIGN IN</MenuItem>
-                    <MenuItem>
-                    <Badge badgeContent={4} color="primary">
-                        <ShoppingCartOutlined />
+           <Wrapper>
+               <Left>
+               <Language>EN</Language>
+               <SearchContainer>
+                   <Input />
+                   <Search style={{color:"gray", fontSize:16}}/>
+               </SearchContainer>
+               </Left>
+               <Center><Logo>FEAR DRIVES FAITH</Logo></Center>
+               <Right>
+                   <MenuItem>REGISTER</MenuItem>
+                   <MenuItem>SIGN IN</MenuItem>
+                   <MenuItem>
+                    <Badge badgeContent={1} color="primary">
+                        <ShoppingCartOutlined/>
                     </Badge>
-                    </MenuItem>
-
-                </Right>
-            </Wrapper>
+                   </MenuItem>
+               </Right>
+           </Wrapper> 
         </Container>
     )
 }
